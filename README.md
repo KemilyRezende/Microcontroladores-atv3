@@ -30,6 +30,8 @@ O objetivo do experimento é contar a quantidade de interrupções causadas por 
 <figcaption> Circuito Contador de Interrupções Externas</figcaption>
 </figure>
 
+Para aplicar a lógica, algorítmo abaixo foi desenvolvido:
+
 ```ino
 volatile int counter = 0;
 volatile bool buttonPressed = false;
@@ -131,6 +133,8 @@ O objetivo do experimento é criar um sistema que dispara um alarme, através de
 <img src="questão 3/alarme.png"/>
 <figcaption> Circuito Alarme de Interrupção com Cancelamento</figcaption>
 </figure>
+
+Para aplicar a lógica, algorítmo abaixo foi desenvolvido:
 
 ```ino
 // Definindo os pinos para o LED, buzzer e botões
