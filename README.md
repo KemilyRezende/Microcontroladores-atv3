@@ -35,8 +35,7 @@ O objetivo deste experimento é desenvolver um programa que meça o tempo entre 
 
 Para aplicar a lógica, algorítmo abaixo foi desenvolvido: 
 
-```
-arduino
+```ino
 volatile unsigned long initialTime = 0;
 volatile unsigned long finalTime = 0;
 bool debounce = false;
@@ -96,8 +95,7 @@ O objetivo deste experimento é fazer um alarme que, ao ser disparado, emite um 
 
 Para aplicar a lógica, algorítmo abaixo foi desenvolvido: 
 
-```
-arduino
+```ino
 int buzzer = 10;
 volatile bool sleepMode = false;
 unsigned long last_interrupt_time = 0;
