@@ -87,7 +87,7 @@ void setup() {
 }
 
 void loop() {
-  if(initialTime < finalTime && !debounce){ \\ Se não houver debounce ativo calcula a diferença nos dois tempos.
+  if(initialTime < finalTime && !debounce){ // Se não houver debounce ativo calcula a diferença nos dois tempos.
     Serial.print("Tempo decorrido: ");
     Serial.print(finalTime - initialTime);
     Serial.println(" ms");
