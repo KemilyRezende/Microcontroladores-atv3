@@ -23,6 +23,44 @@ O Wokwi é uma plataforma de simulação gratuita que oferece suporte a uma ampl
 
 ### 1. Contador de Interrupções Externas.
 
+<figure>
+<img src="questão 1/contador.png"/>
+<figcaption> Circuito Contador de Interrupções Externas</figcaption>
+</figure>
+
+```ino
+volatile int counter = 0;
+volatile bool buttonPressed = false;
+unsigned long last_interrupt_time = 0;
+
+void press() {
+  // Marca o tempo da interrupção atual
+  unsigned long interrupt_time = millis();
+  // Se a última interrupção ocorreu a menos de 400ms considera como bounce
+  if (interrupt_time - last_interrupt_time > 450) 
+  {
+    buttonPressed = true;
+  }
+  last_interrupt_time = interrupt_time;
+}
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(2, INPUT_PULLUP); // Configura o pino 2 como entrada com pull-up interno
+  attachInterrupt(digitalPinToInterrupt(2), press, FALLING); // Muda para FALLING
+}
+
+void loop() {
+  if(buttonPressed){ //Ao pressionar o botão conta a interrupção
+    counter++;
+    Serial.print("Contador: ");
+    Serial.println(counter);
+    buttonPressed = false;
+  }
+}
+
+```
+
 Disponível em: https://wokwi.com/projects/395521541596680193
 
 ### 2. Medidor de Tempo de Interrupção.
@@ -83,6 +121,61 @@ Disponível em: https://wokwi.com/projects/395519406654782465
 
 ### 3. Alarme de Interrupção com Cancelamento.
 
+<figure>
+<img src="questão 3/alarme.png"/>
+<figcaption> Circuito Alarme de Interrupção com Cancelamento</figcaption>
+</figure>
+
+```ino
+// Definindo os pinos para o LED, buzzer e botões
+const int pin_LED = 13;
+const int pin_buzzer = 12;
+const int pin_sensor = 2;
+const int pin_cancel_button = 3;
+
+// Variáveis para controlar o estado do alarme e do botão de cancelamento
+volatile bool alarme_ativo = false;
+volatile bool cancelamento_ativo = false;
+
+void setup() {
+  // Configurando os pinos como entrada ou saída
+  pinMode(pin_LED, OUTPUT);
+  pinMode(pin_buzzer, OUTPUT);
+  pinMode(pin_sensor, INPUT);
+  pinMode(pin_cancel_button, INPUT);
+
+  // Configurando as interrupções externas para os pinos dos botões
+  attachInterrupt(digitalPinToInterrupt(pin_sensor), ativarAlarme, RISING);
+  attachInterrupt(digitalPinToInterrupt(pin_cancel_button), desativarAlarme, RISING);
+}
+
+void loop() {
+  // Verificando se o alarme está ativo
+  if (alarme_ativo) {
+    // Se o alarme estiver ativo, ligar o LED e emitir um som
+    digitalWrite(pin_LED, HIGH);
+    tone(pin_buzzer, 1000);
+  } else {
+    // Se o alarme estiver desativado, desligar o LED e parar o som
+    digitalWrite(pin_LED, LOW);
+    noTone(pin_buzzer);
+  }
+}
+
+// Função para ativar o alarme
+void ativarAlarme() {
+  // Definindo a variável do alarme como verdadeira
+  alarme_ativo = true;
+}
+
+// Função para desativar o alarme
+void desativarAlarme() {
+  // Definindo a variável do alarme como falsa
+  alarme_ativo = false;
+}
+
+```
+
 Disponível em: https://wokwi.com/projects/395519895410805761
 
 ### 4. Alarme com Função Soneca.
@@ -91,7 +184,7 @@ O objetivo deste experimento é fazer um alarme que, ao ser disparado, emite um 
 
 <figure>
 <img src="questão 4/soneca.png"/>
-<figcaption> Circuito Medidor</figcaption>
+<figcaption> Circuito Alarme com Função Soneca</figcaption>
 </figure>
 
 Para aplicar a lógica, algorítmo abaixo foi desenvolvido: 
