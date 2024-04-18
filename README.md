@@ -27,7 +27,7 @@ Disponível em: https://wokwi.com/projects/395521541596680193
 
 ### 2. Medidor de Tempo de Interrupção.
 
-O objetivo deste experimento é desenvolver um programa que meça o tempo entre duas interrupções externas em milissegundos. O início e o fim do tempo são disparados por dois botões diferentes, cada um conectado a seu próprio pino de interrupção (pino 2 e pino), de acordo com o circuito abaixo. O tempo decorrido é exibido no Serial Monitor.
+O objetivo deste experimento é desenvolver um programa que meça o tempo entre duas interrupções externas em milissegundos. O início e o fim do tempo são disparados por dois botões diferentes, cada um conectado a seu próprio pino de interrupção (pino 2 e pino 3), de acordo com o circuito abaixo. O tempo decorrido é exibido no Serial Monitor.
 
 <figure>
 <img src="questão 2/medidor.png"/>
@@ -77,7 +77,7 @@ void finishTime(){
 
 ```
 
-Quando o primeiro botão é pressionado, a função `initTime()` é chamada e registra o tempo atual (`initialTime`) usando a função `millis()`. Quando o segundo botão é pressionado, a função `finishTime()` é chamada para registrar o tempo atual (`finalTime`). Se `initialTime` for menor que `finalTime` e não houver debounce ativo, o programa calcula o tempo decorrido entre os dois eventos e o exibe no Serial Monitor em milissegundos. Depois, o programa zera `initialTime` e `finalTime e define debounce como verdadeiro para evitar múltiplas leituras por um curto período. O loop principal gerencia a lógica de debounce para garantir medições precisas.
+Quando o primeiro botão é pressionado, a função `initTime()` é chamada e registra o tempo atual (`initialTime`) usando a função `millis()`. Quando o segundo botão é pressionado, a função `finishTime()` é chamada para registrar o tempo atual (`finalTime`). Se `initialTime` for menor que `finalTime` e não houver debounce ativo, o programa calcula o tempo decorrido entre os dois eventos e o exibe no Serial Monitor em milissegundos. Depois, o programa zera `initialTime` e `finalTime` e define debounce como verdadeiro para evitar múltiplas leituras por um curto período. O loop principal gerencia a lógica de debounce para garantir medições precisas.
 
 Disponível em: https://wokwi.com/projects/395519406654782465
 
