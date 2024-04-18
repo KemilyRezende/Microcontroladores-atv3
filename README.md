@@ -7,6 +7,7 @@ Kemily Rezende Silva
 
 ## Resumo
 
+Este trabalho aborda conceitos fundamentais de interrupções no Arduino por meio de simulações na plataforma Wokwi. Os exercícios propostos incluem um contador de interrupções externas, um medidor de tempo de interrupção, um alarme com cancelamento e um alarme com função soneca. 
 
 ## Introdução
 Este trabalho tem como objetivo fornecer uma compreensão aprofundada dos conceitos fundamentais de interrupções no arduíno por meio de quatro simulações realizadas na plataforma Wokwi. Para o mesmo, foram propostos os seguintes exercícios:
@@ -140,3 +141,5 @@ O buzzer é acionado com uma frequência de 1000 Hz e é controlado pelas interr
 Disponível em: https://wokwi.com/projects/395524723483063297
 
 ## Conclusões
+
+Neste estudo, foi analisado como interrupções em microcontroladores podem ser aplicadas utilizando simulações na plataforma Wokwi. Foi demonstrado a importância dessas interrupções para a realização de tarefas críticas e para melhorar a eficiência em sistemas embarcados. As simulações mostraram o quão crucial é lidar com problemas como debounce e gerenciamento de estados para evitar erros, assegurando um desempenho satisfatório do Arduino ao lidar com interrupções.
