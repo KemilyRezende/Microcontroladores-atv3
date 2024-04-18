@@ -23,6 +23,8 @@ O Wokwi é uma plataforma de simulação gratuita que oferece suporte a uma ampl
 
 ### 1. Contador de Interrupções Externas.
 
+O objetivo do experimento é contar a quantidade de interrupções causadas por um botão externo.
+
 <figure>
 <img src="questão 1/contador.png"/>
 <figcaption> Circuito Contador de Interrupções Externas</figcaption>
@@ -60,6 +62,8 @@ void loop() {
 }
 
 ```
+
+A função press faz o tratamento da entrada, para que mesmo com o efeito de bouncing do botão a interrupção seja registrada apenas uma vez. Já no loop o contador é incrementado e mostrado na porta serial. 
 
 Disponível em: https://wokwi.com/projects/395521541596680193
 
@@ -121,6 +125,8 @@ Disponível em: https://wokwi.com/projects/395519406654782465
 
 ### 3. Alarme de Interrupção com Cancelamento.
 
+O objetivo do experimento é criar um sistema que dispara um alarme, através de um LED e um buzzer, quando uma interrupção é causada por um botão externo, adicionalmente foi criado um botão que desliga o alarme.
+
 <figure>
 <img src="questão 3/alarme.png"/>
 <figcaption> Circuito Alarme de Interrupção com Cancelamento</figcaption>
@@ -175,6 +181,9 @@ void desativarAlarme() {
 }
 
 ```
+
+
+Quando o primeiro botão é pressionado, a função `ativarAlarme()` é chamada, definindo a variável `alarme_ativo` como verdadeira e quando o segundo botão é pressionado, a função `desativarAlarme()` é acionada, alterando o estado da variável `alarme_ativo` para falso. No loop principal do programa, o estado de `alarme_ativo` é verificado continuamente. Se estiver ativo, o LED é ligado e o buzzer emite um som; caso contrário, o LED é desligado e o som é interrompido. Essencialmente, esse código constitui um sistema de alarme básico que pode ser expandido e personalizado conforme necessário.
 
 Disponível em: https://wokwi.com/projects/395519895410805761
 
