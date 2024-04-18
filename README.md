@@ -87,27 +87,27 @@ void setup() {
 }
 
 void loop() {
-  if(initialTime < finalTime && !debounce){
+  if(initialTime < finalTime && !debounce){ \\ Se não houver debounce ativo calcula a diferença nos dois tempos.
     Serial.print("Tempo decorrido: ");
     Serial.print(finalTime - initialTime);
     Serial.println(" ms");
     initialTime = 0;
     finalTime = 0;
-    debounce = true;
+    debounce = true; // Ativa o debounce para impedir incertezas
     delay(250);
   }
   else {
-    debounce = false;
+    debounce = false; // Desativa o debounce para habilitar novo cálculo
   }
 }
 
-void initTime(){
+void initTime(){ // Define o tempo inicial se não houver debounce ativo
   if (!debounce){
     initialTime = millis();
   }
 }
 
-void finishTime(){
+void finishTime(){  // Define o tempo final se não houver debounce ativo
   if(!debounce){
     finalTime = millis();
   }
@@ -194,11 +194,11 @@ int buzzer = 10;
 volatile bool sleepMode = false;
 unsigned long last_interrupt_time = 0;
 
-void off(){
+void off(){ // Função que desliga o alarme
   noTone(buzzer);
 }
 
-void sleep(){
+void sleep(){ // Função que ativa a soneca
   unsigned long interrupt_time = millis();
   if (interrupt_time - last_interrupt_time > 450) {
     sleepMode = true;
@@ -211,18 +211,18 @@ void setup() {
   pinMode(buzzer, OUTPUT);
   attachInterrupt(digitalPinToInterrupt(2), off, RISING);
   attachInterrupt(digitalPinToInterrupt(3), sleep, RISING);
-  tone(buzzer, 1000);
+  tone(buzzer, 1000); // Inicia o alarme 
 }
 
 void loop() {
-  if(sleepMode) {
+  if(sleepMode) { // Se a função soneca foi ativada desliga o alarme por 5 segundos
     noTone(buzzer);
     delay(5000);
     tone(buzzer, 1000);
     sleepMode = false;
   }
   unsigned long currentTime = millis();
-  if(currentTime > 30000){
+  if(currentTime > 30000){ // Se o tempo atual for maior que 30s desliga o alarme
     off();
   }
 }
