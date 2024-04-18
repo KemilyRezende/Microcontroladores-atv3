@@ -26,6 +26,13 @@ Disponível em: https://wokwi.com/projects/395521541596680193
 
 ### 2. Medidor de Tempo de Interrupção.
 
+O objetivo deste experimento é desenvolver um programa que meça o tempo entre duas interrupções externas em milissegundos. O início e o fim do tempo são disparados por dois botões diferentes, cada um conectado a seu próprio pino de interrupção (pino 2 e pino), de acordo com o circuito abaixo. O tempo decorrido é exibido no Serial Monitor.
+
+<figure>
+<img src="questão 1/medidor.png"/>
+<figcaption> Circuito Hello, World!</figcaption>
+</figure>
+
 Disponível em: https://wokwi.com/projects/395519406654782465
 
 ### 3. Alarme de Interrupção com Cancelamento.
